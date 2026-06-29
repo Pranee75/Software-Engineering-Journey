@@ -25,3 +25,24 @@ class Solution:
             
 sol=Solution()
 print(sol.moveZeroes([0,1,0,3,12]))
+
+"OR"
+
+
+class Solution:
+    def moveZeroes(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        last_non_zero_found_at = 0
+        
+        # Iterate through the array
+        for current in range(len(nums)):
+            # If the current element is not 0, swap it with the 
+            # position of the last zero we found
+            if nums[current] != 0:
+                nums[last_non_zero_found_at], nums[current] = nums[current], nums[last_non_zero_found_at]
+                last_non_zero_found_at += 1
+        return nums
+sol = Solution()    
+print(sol.moveZeroes([0, 1, 0, 3, 12]))    
